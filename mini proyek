@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX_INPUT 10
+
+int main() {
+    char kategori[MAX_INPUT][50];
+    float jumlah[MAX_INPUT];
+    int n = 0;
+    float total = 0;
+
+    printf("Masukkan data pengeluaran (kategori dan jumlah, ketik 'selesai' untuk berhenti):\n");
+    while (n < MAX_INPUT) {
+        printf("Kategori %d: ", n + 1);
+        scanf("%s", kategori[n]);
+        if (strcmp(kategori[n], "selesai") == 0) break;
+        printf("Jumlah:");
+        scanf("%f", &jumlah[n]);
+        total += jumlah[n];
+        n++;
+    }
+
+    printf("\n-- Ringkasan Pengeluaran --\n");
+    for (int i = 0; i < n; i++) {
+        printf("%s: Rp %.2f\n", kategori[i], jumlah[i]);
+    }
+    printf("Total Pengeluaran: Rp %.2f\n", total);
+    return 0;
+}
